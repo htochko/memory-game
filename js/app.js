@@ -33,6 +33,7 @@ class MemoryGameApp extends HTMLElement {
     this.shadowRoot.appendChild(wrapper);
     
     // add event listeners
+    this.addEventListener('game-start', () => this.startGame());
     this.addEventListener('card-click', (e) => this.handleCardClick(e.detail));
 
     this.startGame();
