@@ -21,7 +21,7 @@ class MemoryHeader extends HTMLElement {
 
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', './../css/header.css');
+    link.setAttribute('href', './css/header.css');
 
     this.shadowRoot.appendChild(link);
     this.shadowRoot.appendChild(header);

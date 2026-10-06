@@ -27,7 +27,7 @@ class MemoryGameApp extends HTMLElement {
 
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', './../css/app.css');
+    link.setAttribute('href', './css/app.css');
 
     this.shadowRoot.appendChild(link);
     this.shadowRoot.appendChild(wrapper);
