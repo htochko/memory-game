@@ -7,7 +7,7 @@ class ScoreDialog extends HTMLElement {
   
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', './css/dialog.css');
+    link.setAttribute('href', 'css/dialog.css');
 
     this.shadowRoot.appendChild(link);
     this.shadowRoot.appendChild(this.dialog);
