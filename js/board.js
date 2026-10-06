@@ -13,6 +13,7 @@ class MemoryBoard extends HTMLElement {
     this.shadowRoot.appendChild(link);
     this.shadowRoot.appendChild(this.grid);
   }
+
   initBoard(values) {
     while (this.grid.firstChild) {
       this.grid.removeChild(this.grid.firstChild);

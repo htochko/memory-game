@@ -55,12 +55,37 @@ class MemoryGameApp extends HTMLElement {
     if (element === this.firstCard?.element) return;
     if (element.classList.contains('matched') || element.classList.contains('flipped')) return;
 
-    // Flip card
     element.classList.add('flipped');
 
     if (!this.firstCard) {
       this.firstCard = { index, value, element };
       return;
+    }
+
+    const secondCard = { index, value, element };
+    this.score++;
+    this.header.updateScore(this.score);
+
+    if (this.firstCard.value === secondCard.value) {
+      this.firstCard.element.classList.add('matched');
+      secondCard.element.classList.add('matched');
+      this.matchedPairs++;
+      this.firstCard = null;
+
+      if (this.matchedPairs === 8) {
+        this.dialog.show(this.score);
+      }
+    } else {
+      this.lockBoard = true;
+      const cachedFirst = this.firstCard.element;
+      const cachedSecond = secondCard.element;
+
+      setTimeout(() => {
+        cachedFirst.classList.remove('flipped');
+        cachedSecond.classList.remove('flipped');
+        this.firstCard = null;
+        this.lockBoard = false;
+      }, 750);
     }
   }
 }
