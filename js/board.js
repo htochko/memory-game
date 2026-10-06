@@ -8,7 +8,7 @@ class MemoryBoard extends HTMLElement {
 
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', '../css/board.css');
+    link.setAttribute('href', './../css/board.css');
 
     this.shadowRoot.appendChild(link);
     this.shadowRoot.appendChild(this.grid);
@@ -25,7 +25,7 @@ class MemoryBoard extends HTMLElement {
       card.dataset.value = val;
       card.dataset.index = index;
       var cardImg = document.createElement("img");
-      cardImg.setAttribute('src', `/asset/${val}.png`);
+      cardImg.setAttribute('src', `./../asset/${val}.png`);
       cardImg.setAttribute('alt', 'card');
       card.appendChild(cardImg);
 
