@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 2rem;
+  background: #1e293b;
+  color: rgb(206, 212, 28);
+  border-radius: 0.5rem;
+  font-family: sans-serif;
+}
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 3em;
+  cursor: pointer;
+  background: #354257;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+}
+button:hover { background: rgb(206, 212, 28); color: #1e293b}

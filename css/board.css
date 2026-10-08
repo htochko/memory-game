@@ -1,0 +1,42 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 450px;
+  margin: 2rem auto;
+}
+.card {
+  aspect-ratio: 1;
+  background-image: url(./../asset/background.png);
+  background-size: cover;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  user-select: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.card > img {
+  width: 0px;
+  height: 0px;
+}
+
+.card:hover { transform: scale(1.02); }
+.card.flipped > img {
+  width: 2rem;
+  height: auto
+}
+.card.flipped, .card.matched {
+  background: #ffffff;
+  color: #1e293b;
+  border: 2px solid #cbd5e1;
+}
+.card.matched {
+  background: #d1fae5;
+  border-color: #34d399;
+  cursor: default;
+}
