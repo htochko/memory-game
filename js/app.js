@@ -34,6 +34,7 @@ class MemoryGameApp extends HTMLElement {
     
     // add event listeners
     this.addEventListener('game-start', () => this.startGame());
+    this.addEventListener('show-leaders', () => this.showLeaders());
     this.addEventListener('card-click', (e) => this.handleCardClick(e.detail));
 
     this.startGame();
@@ -45,6 +46,7 @@ class MemoryGameApp extends HTMLElement {
     this.firstCard = null;
     this.lockBoard = false;
     this.header.updateScore(this.score);
+    this.header.updateMatchedPairs(this.matchedPairs);
     const cardValues = [...cardData, ...cardData].sort(() => Math.random() - 0.5);
 
     this.board.initBoard(cardValues);
@@ -70,9 +72,11 @@ class MemoryGameApp extends HTMLElement {
       this.firstCard.element.classList.add('matched');
       secondCard.element.classList.add('matched');
       this.matchedPairs++;
+      this.header.updateMatchedPairs(this.matchedPairs);
       this.firstCard = null;
 
       if (this.matchedPairs === 8) {
+        console.log(this.dialog);
         this.dialog.show(this.score);
       }
     } else {
