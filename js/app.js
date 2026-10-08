@@ -76,7 +76,6 @@ class MemoryGameApp extends HTMLElement {
       this.firstCard = null;
 
       if (this.matchedPairs === 8) {
-        console.log(this.dialog);
         this.dialog.show(this.score);
       }
     } else {

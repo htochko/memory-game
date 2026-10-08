@@ -23,7 +23,7 @@ class ScoreDialog extends HTMLElement {
     playButton.textContent = 'Play Again';
     playButton.addEventListener('click', () => {
       this.dialog.close();
-      this.dispatchEvent(new CustomEvent('start-game', { bubbles: true, composed: true }));
+      this.dispatchEvent(new CustomEvent('game-start', { bubbles: true, composed: true }));
     });
 
     contentWrapper.appendChild(this.message);
