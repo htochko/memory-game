@@ -35,7 +35,7 @@ class MemoryGameApp extends HTMLElement {
     
     // add event listeners
     this.addEventListener('game-start', () => this.startGame());
-    this.addEventListener('show-leaders', () => this.dialog.show('leaderboard',localStorage.getItem('leaderboard') || []));
+    this.addEventListener('show-leaders', () => this.dialog.show('leaderboard', JSON.parse(localStorage.getItem('leaderboard')) || []));
     this.addEventListener('card-click', (e) => this.handleCardClick(e.detail));
 
     this.startGame();
