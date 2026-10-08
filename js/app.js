@@ -53,6 +53,22 @@ class MemoryGameApp extends HTMLElement {
     this.board.initBoard(cardValues);
   }
 
+  handleLiderboard (score) {
+    let leaderboard = localStorage.getItem('leaderboard') || [];
+    const now = new Date();
+    const dateStr = `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`;
+    
+    leaderboard.push({ score: this.score, date: dateStr, timestamp: now.getTime  });
+    leaderboard.sort((a, b) => {
+      if (a.score !== b.score) {
+        return a.score - b.score; // Lower score wins
+      }
+      return b.timestamp - a.timestamp
+    }); 
+    
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard.slice(0, 10)));
+  }
+
   handleCardClick({ index, value, element }) {
     if (this.lockBoard) return;
     if (element === this.firstCard?.element) return;
@@ -77,6 +93,7 @@ class MemoryGameApp extends HTMLElement {
       this.firstCard = null;
 
       if (this.matchedPairs === 8) {
+        this.handleLiderboard(this.score)
         this.dialog.show('end', this.score);
       }
     } else {
