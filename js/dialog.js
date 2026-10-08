@@ -16,7 +16,7 @@ class ScoreDialog extends HTMLElement {
     closeButton.textContent = 'Play Again';
     closeButton.addEventListener('click', () => {
       this.dialog.close();
-      this.dispatchEvent(new CustomEvent('play-again', { bubbles: true, composed: true }));
+      this.dispatchEvent(new CustomEvent('start-game', { bubbles: true, composed: true }));
     });
 
     contentWrapper.appendChild(this.message);
