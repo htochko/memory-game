@@ -13,14 +13,22 @@ class ScoreDialog extends HTMLElement {
     this.message.textContent = 'Game Over! Your final score: 0';
 
     const closeButton = document.createElement('button');
-    closeButton.textContent = 'Play Again';
+    closeButton.setAttribute('class', 'secondary');
+    closeButton.textContent = 'Close';
     closeButton.addEventListener('click', () => {
+      this.dialog.close();
+    });
+
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play Again';
+    playButton.addEventListener('click', () => {
       this.dialog.close();
       this.dispatchEvent(new CustomEvent('start-game', { bubbles: true, composed: true }));
     });
 
     contentWrapper.appendChild(this.message);
     contentWrapper.appendChild(closeButton);
+    contentWrapper.appendChild(playButton);
     this.dialog.appendChild(contentWrapper);
 
     const link = document.createElement('link');
