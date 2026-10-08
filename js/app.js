@@ -13,6 +13,7 @@ class MemoryGameApp extends HTMLElement {
     this.firstCard = null;
     this.lockBoard = false;
     this.matchedPairs = 0;
+    this.leaderArray = [];
 
     const wrapper = document.createElement('div');
     wrapper.setAttribute('class', 'app-container');
@@ -34,7 +35,7 @@ class MemoryGameApp extends HTMLElement {
     
     // add event listeners
     this.addEventListener('game-start', () => this.startGame());
-    this.addEventListener('show-leaders', () => this.showLeaders());
+    this.addEventListener('show-leaders', () => this.dialog.show('leaderboard',localStorage.getItem('leaderboard') || []));
     this.addEventListener('card-click', (e) => this.handleCardClick(e.detail));
 
     this.startGame();
@@ -76,7 +77,7 @@ class MemoryGameApp extends HTMLElement {
       this.firstCard = null;
 
       if (this.matchedPairs === 8) {
-        this.dialog.show(this.score);
+        this.dialog.show('end', this.score);
       }
     } else {
       this.lockBoard = true;
